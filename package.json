@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-messenger-checkbox-plugin": "^1.0.5",
+    "react-messenger-checkbox-plugin": "^2.0.1",
     "react-scripts": "1.0.17"
   },
   "scripts": {

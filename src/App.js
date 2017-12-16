@@ -5,32 +5,56 @@ import './App.css';
 
 class App extends Component {
 
-    onClick = () => {
-        console.log(this.name);
-         this.checkBox.send('asdfasf_asdfa');
+  constructor(props) {
+    super(props);
+    this.state = {name: '', pnr:''};
+    this.checkBox= null;
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value =  target.value;
+    const name = target.name;
+
+    console.log(event);
+    this.setState({
+      [name]: value
+    });
+  }
+
+
+  handleSubmit(event) {
+    alert(`Gracias, en breve recibiras confirmacion`);
+    this.checkBox.send(`${this.state.pnr}_${this.state.name}`);
+    event.preventDefault();
+  }
+
   render() {
     return (
-        <div>
-            <label>
-          COdigo de reservacion:
-          <input type="text" value={this.pnr} onChange={this.handleChange} />
-      </label>
-      <label>
-          Apellido:
-          <input type="text" value={this.name} onChange={this.handleChange} />
-        </label>
-        <MessengerPlugin
-            type="fb-messenger-checkbox"
-          appId="1161293877241041"
-          pageId="362430908370"
-          prechecked="true"
-          allow_login="true"
-          onRef={ref => (this.checkBox = ref)}
-  />
-    <button onClick={this.onClick}>MessengerPlugin.send()</button>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Codigo de reservacion:
+            <input type="text" value={this.state.pnr} name="pnr" onChange={this.handleInputChange} />
+          </label>
+          <label>
+            Apellido:
+            <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} />
+          </label>
 
-  </div>
+          <br/><br/>
+          <MessengerPlugin
+              type="fb-messenger-checkbox"
+            appId="1161293877241041"
+            pageId="362430908370"
+            prechecked="true"
+            allow_login="true"
+            onRef={ref => (this.checkBox = ref)}
+          />
+          <input type="submit" value="Submit" />
+      </form>
     );
   }
 }
