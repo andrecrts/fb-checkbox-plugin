@@ -47,7 +47,7 @@ class App extends Component {
           </label>
 
           <br/><br/>
-          <MessengerPlugin
+          <MessengerPluginComponent
               type="fb-messenger-checkbox"
             appId="1161293877241041"
             pageId="362430908370"
