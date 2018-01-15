@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import MessengerPlugin from 'react-messenger-checkbox-plugin';
 import './App.css';
 
-const MessengerPluginComponent = MessengerPlugin('//connect.facebook.net/es_LA/sdk.js');
+const MessengerPluginComponent = MessengerPlugin('//connect.facebook.net/en_US/sdk.js');
 
 class App extends Component {
 
